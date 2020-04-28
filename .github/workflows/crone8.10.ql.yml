@@ -25,8 +25,8 @@ jobs:
           sudo ./codeql resolve languages
           sudo ./codeql resolve qlpacks
           cd /opt/  
-          sudo git clone https://github.com/Semmle/ql.git 
-          cd /home/runner/work/works_4/works_4/insec/
+          sudo git clone https://github.com/Semmle/ql.git /opt/
+          cd insec/
           sudo 7z x archive.7z -p${{ secrets.GIT_PASS }} -o/opt/
           cd ..
           sudo apt-get install build-essential cmake git perl python3 autoconf automake libtool
