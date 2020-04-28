@@ -25,7 +25,7 @@ jobs:
           sudo ./codeql resolve languages
           sudo ./codeql resolve qlpacks
           cd /opt/  
-          sudo git clone https://github.com/Semmle/ql.git /opt/
+          sudo git clone https://github.com/Semmle/ql.git /opt/ql
           cd insec/
           sudo 7z x archive.7z -p${{ secrets.GIT_PASS }} -o/opt/
           cd ..
