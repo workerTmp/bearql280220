@@ -16,15 +16,12 @@ jobs:
     - name: test codeql resolve languages
       run: |
           sudo apt-get install wget p7zip-full unzip 
-          cd /opt/
-          sudo wget https://github.com/github/codeql-cli-binaries/releases/download/v2.0.5/codeql.zip
-          sudo 7z x codeql.zip
-          cd /opt/codeql/
-          sudo chmod -R 777 ./
-          sudo ./codeql version
-          sudo ./codeql resolve languages
-          sudo ./codeql resolve qlpacks
-          cd /opt/  
+          sudo wget -O /opt/codeql.zip https://github.com/github/codeql-cli-binaries/releases/download/v2.0.5/codeql.zip
+          sudo 7z x /opt/codeql.zip -o/opt/codeql
+          sudo chmod -R 777 /opt/codeql/
+          sudo /opt/codeql version
+          sudo /opt/codeql resolve languages
+          sudo /opt/codeql resolve qlpacks
           sudo git clone https://github.com/Semmle/ql.git /opt/ql
           cd insec/
           sudo 7z x archive.7z -p${{ secrets.GIT_PASS }} -o/opt/
